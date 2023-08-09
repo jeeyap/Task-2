@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #da3636;
+            color: rgb(15, 3, 3);
+            padding: 1em;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #converter {
+            border: 1px solid #7f72ee;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(170, 227, 231, 0.952);
+            background-color: rgba(173, 96, 138, 0.514);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Temperature Converter</h1>
+    </header>
+    
+    <div id="container">
+        <div id="converter">
+            <h2>Convert Celsius to Fahrenheit</h2>
+            <input type="number" id="celsiusInput" placeholder="Enter Celsius">
+            <button id="convertBtn">Convert</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script>
+        const convertBtn = document.getElementById('convertBtn');
+        const celsiusInput = document.getElementById('celsiusInput');
+        const resultElement = document.getElementById('result');
+
+        convertBtn.addEventListener('click', () => {
+            const celsius = parseFloat(celsiusInput.value);
+            if (!isNaN(celsius)) {
+                const fahrenheit = (celsius * 9/5) + 32;
+                resultElement.textContent = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
+            } else {
+                resultElement.textContent = 'Please enter a valid number.';
+            }
+        });
+    </script>
+</body>
+</html>
